@@ -10,6 +10,7 @@ class MainActionButton extends StatelessWidget {
     required this.arrowAnimation,
     required this.arrowAnimationController,
     required this.enable,
+    this.rotationPortion = 0.10,
     this.button,
   }) : super(key: key);
 
@@ -19,6 +20,7 @@ class MainActionButton extends StatelessWidget {
   final AnimationController arrowAnimationController;
   final Animation arrowAnimation;
   final bool enable;
+  final double rotationPortion;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,10 @@ class MainActionButton extends StatelessWidget {
                     animation: arrowAnimationController,
                     builder: (BuildContext context, Widget? child) {
                       return Transform.rotate(
-                        angle: (arrowAnimation.value * 2.0 * math.pi) as double,
+                        angle: (arrowAnimation.value *
+                            rotationPortion *
+                            math.pi) as double,
+                        // angle: 10.0,
                         child: child,
                       );
                     },
