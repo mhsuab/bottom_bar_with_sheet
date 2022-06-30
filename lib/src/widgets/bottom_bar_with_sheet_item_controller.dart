@@ -48,7 +48,10 @@ class _BottmBarItemControllerState extends State<BottmBarItemController> {
         hoverColor: Colors.transparent,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        onTap: () => widget.controller.selectItem(widget.index),
+        onTap: () {
+          if (!widget.model.disabled)
+            widget.controller.selectItem(widget.index);
+        },
         child: BottomBarWithSheetItemWidget(
           model: widget.model,
           theme: widget.theme,
