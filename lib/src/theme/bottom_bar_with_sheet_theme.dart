@@ -58,6 +58,8 @@ class BottomBarTheme {
   /// [bool] makes the labels of the items appear vertically or horizontally.
   final bool isVerticalItemLabel;
 
+  final Color? splash;
+
   const BottomBarTheme({
     this.contentPadding = _kDefaultContentPadding,
     this.height = 75,
@@ -74,5 +76,6 @@ class BottomBarTheme {
     this.itemIconSize = 22,
     this.selectedItemIconSize = 24,
     this.isVerticalItemLabel = true,
+    this.splash,
   });
 }
