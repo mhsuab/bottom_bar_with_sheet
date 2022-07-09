@@ -11,12 +11,14 @@ class BottmBarItemController extends StatefulWidget {
     required this.controller,
     required this.index,
     required this.theme,
+    required this.disabled,
   }) : super(key: key);
 
   final int index;
   final BottomBarWithSheetItem model;
   final BottomBarWithSheetController controller;
   final BottomBarTheme theme;
+  final bool disabled;
 
   @override
   _BottmBarItemControllerState createState() => _BottmBarItemControllerState();
@@ -49,7 +51,7 @@ class _BottmBarItemControllerState extends State<BottmBarItemController> {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () {
-          if (!widget.model.disabled)
+          if (!widget.disabled && !widget.model.disabled)
             widget.controller.selectItem(widget.index);
         },
         child: BottomBarWithSheetItemWidget(
